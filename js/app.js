@@ -53,7 +53,7 @@ for (let i = 0; i < cards.length){
   [].forEach.call(cards, function(item) {
   deck.appendChild(item);
 });
-cards[i].classList.remove("show", "open", "match", "disabled");
+cards[i].classList.removeClass("show", "open", "match", "disabled");
 }
 /* reset moves*/
 moves = 0;
@@ -94,7 +94,7 @@ this.classList.toggle("disabled");
 /*  - display the card's symbol (put this functionality in another function that you call from this one)
  /*  - add the card to a *list* of "open" cards and check if cards are match or not (put this functionality in another function that you call from this one)*/
 
-function opencard() {
+function openCard() {
 openCards.push(this);
 //let length = openCards.length;
 if(openCards.length === 2){
@@ -108,13 +108,41 @@ if(openCards[0].type === openCards[1].type){
 };
 
 function match() {
-   openCards[0].classList.add("match", "disabled");
-   openCards[1].classList.add("match", "disabled");
-   openCards[0].classList.remove("show", "open", "no-event");
-   openCards[1].classList.remove("show", "open", "no-event");
+   openCards[0].classList.addClass("match", "disabled");
+   openCards[1].classList.addClass("match", "disabled");
+   openCards[0].classList.removeClass("show", "open", "no-event");
+   openCards[1].classList.removeClass("show", "open", "no-event");
    openCards = [];
 }
+
+// description when cards don't match
+function noMatch(){
+openCards[0].classList.addClass("notMatch");
+openCards[1].classList.addClass("notMatch");
+disable();
+setTimeout(function(){
+openCards[0].classList.removeClass("show", "open", "no-event","notMatch");
+openCards[1].classList.removeClass("show", "open", "no-event","notMatch");
+enable();
+openCards = [];
+},1100);
 }
+//disable cards temporarily
+function disable(){
+[].prototype.filter.call(cards, function(card){
+card.classList.addClass('disabled');
+});
+}
+// enable cards and disable matched cards
+function enable(){
+[].prototype.filter.call(cards, function(card){
+card.classList.removeClass('disable');
+for(let i = 0; i < matchCard.length; i++){
+matchCard[i].classList.addClass("disabled");
+}
+});
+}
+
 
 /*  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
