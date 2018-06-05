@@ -2,7 +2,6 @@
  * Define Variables
  */
  let moves = 0;
- let counter = document.querySelector(".moves");
  let matchedCard = document.getElementsByClassName("match");
  let listOfStars = document.querySelectorAll(".stars li");
  let openCards = [];
@@ -10,8 +9,9 @@
 
  const deck = document.getElementById("deck");
  const stars = document.querySelectorAll(".fa-star");
+ const counterDisplay = document.querySelector(".moves");
  const closeIcon = document.querySelector(".close");
- const pop-up = document.getElementById("modal");
+ const popUp = document.getElementById("modal");
 
 /*
  * Create a list that holds all of the cards based on HTML
@@ -47,17 +47,16 @@ startGame();
 
 function startGame() {
 cards = shuffle(cards);
-/* remove all exisiting classes from each card*/
 for (let i = 0; i < cards.length){
   deck.innerHTML = "";
   [].forEach.call(cards, function(item) {
   deck.appendChild(item);
 });
-cards[i].classList.removeClass("show", "open", "match", "disabled");
+cards[i].classList.remove("show", "open", "match", "disabled");
 }
 /* reset moves*/
 moves = 0;
-counter.innerHTML = moves;
+counterDisplay.innerHTML = moves;
 /* reset rating*/
 for (let i = 0; i < stars.length; i++){
    stars[i].style.color = "#34FC00";
@@ -107,41 +106,127 @@ if(openCards[0].type === openCards[1].type){
 }
 };
 
+/*if the cards do match, lock the cards in the open position */
+\
 function match() {
-   openCards[0].classList.addClass("match", "disabled");
-   openCards[1].classList.addClass("match", "disabled");
-   openCards[0].classList.removeClass("show", "open", "no-event");
-   openCards[1].classList.removeClass("show", "open", "no-event");
+   openCards[0].classList.add("match", "disabled");
+   openCards[1].classList.add("match", "disabled");
+   openCards[0].classList.remove("show", "open");
+   openCards[1].classList.remove("show", "open");
    openCards = [];
 }
 
-// description when cards don't match
+/*if the cards do not match, remove the cards from the list and hide the card's symbol*/
 function noMatch(){
-openCards[0].classList.addClass("notMatch");
-openCards[1].classList.addClass("notMatch");
+openCards[0].classList.add("notMatch");
+openCards[1].classList.add("notMatch");
 disable();
 setTimeout(function(){
-openCards[0].classList.removeClass("show", "open", "no-event","notMatch");
-openCards[1].classList.removeClass("show", "open", "no-event","notMatch");
+openCards[0].classList.remove("show", "open", "notMatch");
+openCards[1].classList.remove("show", "open", "notMatch");
 enable();
 openCards = [];
 },1100);
 }
-//disable cards temporarily
+/*temporarily disable cards */
 function disable(){
 [].prototype.filter.call(cards, function(card){
-card.classList.addClass('disabled');
+card.classList.add('disabled');
 });
 }
-// enable cards and disable matched cards
+/*enable cards and disable matched cards*/
 function enable(){
 [].prototype.filter.call(cards, function(card){
-card.classList.removeClass('disable');
+card.classList.remove('disabled');
 for(let i = 0; i < matchCard.length; i++){
-matchCard[i].classList.addClass("disabled");
+matchCard[i].classList.add("disabled");
 }
 });
 }
+
+function moveCounter(){
+moves++;
+counterDisplay.innerHTML = moves;
+/* start timer on first click*/
+if (moves == 1){
+second = 0;
+minute = 0;
+hour = 0;
+startTimer();
+}
+
+/* setting stars rating based on num of moves*/
+/*if (moves > 8 && moves < 12){
+for( i = 0; i < 3; i++){
+if(i > 1){
+stars[i].style.visibility = "hidden";
+}
+}
+}
+else if (moves > 13){
+for( i = 0; i < 3; i++){
+if(i > 0){
+stars[i].style.visibility = "hidden";
+}
+}
+}
+}*/
+
+/*timer*/
+let second = 0, minute = 0; hour = 0;
+let timer = document.querySelector(".timer");
+let interval;
+function startTimer(){
+interval = setInterval(function(){
+timer.innerHTML = minute+"mins "+second+"secs";
+second++;
+if (second == 60){
+minute++;
+second=0;
+}
+if (minute == 60){
+hour++;
+minute = 0;
+}
+},1000);
+}
+// congratulations when all cards match, show modal and moves, time and rating
+/*function congratulations(){
+if (matchedCard.length == 16){
+clearInterval(interval);
+finalTime = timer.innerHTML;
+// show congratulations modal
+modal.classList.add("show");
+// declare star rating variable
+let starRating = document.querySelector(".stars").innerHTML;
+//showing move, rating, time on modal
+document.getElementById("finalMove").innerHTML = moves;
+document.getElementById("starRating").innerHTML = starRating;
+document.getElementById("totalTime").innerHTML = finalTime;
+//closeicon on modal
+closeModal();
+};
+}
+//close icon on modal
+function closeModal(){
+closeicon.addEventListener("click", function(e){
+modal.classList.remove("show");
+startGame();
+});
+}
+// for user to play Again
+function playAgain(){
+modal.classList.remove("show");
+startGame();
+}
+// loop to add event listeners to each card
+for (var i = 0; i < cards.length; i++){
+card = cards[i];
+card.addEventListener("click", displayCard);
+card.addEventListener("click", cardOpen);
+card.addEventListener("click",congratulations);
+};*/
+
 
 
 /*  - if the list already has another card, check to see if the two cards match

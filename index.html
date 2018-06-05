@@ -17,12 +17,13 @@
 
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<li><i id="starOne" class="fa fa-star"></i></li>
+        		<li><i  id="starTwo" class="fa fa-star"></i></li>
+        		<li><i id="starThree" class="fa fa-star"></i></li>
         	</ul>
 
         	<span class="moves">3</span> Moves
+
           <div class="timer">
           </div>
 
@@ -81,15 +82,15 @@
                 <i class="fa fa-cube"></i>
             </li>
         </ul>
-        <div id="modal" class="overlay">
-          <div class="modal-content">
+        <div id="modal" class="overlay-effect">
+          <div class="modal-text">
             <h2>Congratulations :-)</h2>
             <p>Your memory is awesome!</p>
               <a class="close" href=# >×</a>
-            <div class="contentOne">
+            <div class="textOne">
                 Congratulations you're a winner!!!
             </div>
-            <div class="contentTwo">
+            <div class="textTwo">
               <p>You made <span id=finalMove></span> moves </p>
               <p>in <span id=totalTime></span></p>
               <p>Rating: <span id=starRating></span></p>
