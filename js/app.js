@@ -1,6 +1,6 @@
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 // While there remain elements to shuffle...
     while (currentIndex !== 0) {
 // Pick a remaining element...
@@ -48,14 +48,14 @@ clearInterval(interval);
 }
 
 function moveCounter(){
-moves++;
-counterDisplay.innerHTML = moves;
+	moves++;
+	counterDisplay.innerHTML = moves;
 /* start timer on first click*/
-if (moves == 1){
-second = 0;
-minute = 0;
-hour = 0;
-startTimer();
+	if (moves == 1){
+		second = 0;
+		minute = 0;
+		hour = 0;
+		startTimer();
 }
 
 /* setting stars rating based on num of moves*/
@@ -78,16 +78,16 @@ let second = 0, minute = 0; hour = 0;
 let timer = document.querySelector(".timer");
 let interval;
 function startTimer(){
-interval = setInterval(function(){
-timer.innerHTML = minute+"mins "+second+"secs";
+	interval = setInterval(function(){
+	timer.innerHTML = minute+"mins "+second+"secs";
 second++;
 if (second == 60){
-minute++;
-second=0;
+	minute++;
+	second=0;
 }
 if (minute == 60){
-hour++;
-minute = 0;
+	hour++;
+	minute = 0;
 }
 },1000);
 }
@@ -99,7 +99,7 @@ const cards = document.getElementsByClassName("card");
 console.log(...cards);
 
 /* Use toggle open and show to Display the cards on the page*/
-let displayCard = function (){
+let displayCards = function (){
 this.classList.toggle("open");
 this.classList.toggle("show");
 this.classList.toggle("disabled");
@@ -126,7 +126,7 @@ cards[i].classList.remove("show", "open", "match", "disabled");
 
  /*add the card to a *list* of "open" cards and check if cards are match or not (put this functionality in another function that you call from this one)*/
 function openCardsCompare() {
-openCards.push(this);
+	openCards.push(this);
 if(openCards.length === 2){
 	moveCounter();
 if(openCards[0].type === openCards[1].type){
@@ -164,6 +164,7 @@ function disable(){
 	card.classList.add('disabled');
 });
 }
+	
 /*enable cards and disable matched cards*/
 function enable(){
 	[].prototype.filter.call(cards, function(card){
@@ -176,7 +177,6 @@ function enable(){
 
 /* congratulations when all cards match, show modal and moves, time and rating*/
 function gameOverMessage() {
-	
 	if (matchCard.length == 16) {
 		clearInterval(interval);
 		finalTime = timer.innerHTML;
@@ -192,6 +192,7 @@ function gameOverMessage() {
  		closeModal();
 };
 }
+	
 /*close icon on modal*/
 function closeModal(){
 	closeIcon.addEventListener("click", function(e){
@@ -199,15 +200,17 @@ function closeModal(){
 	startGame();
 });
 }
+	
 /*play Again*/
 function playAgain(){
 	popUp.classList.remove("show");
 	startGame();
 }
+	
 // loop to add event listeners to each card
 for (let i = 0; i < cards.length; i++) {
 	card = cards[i];
-	card.addEventListener("click", displayCard);
-	card.addEventListener("click", openCard);
-	card.addEventListener("click",congratulations);
+	card.addEventListener("click", displayCards);
+	card.addEventListener("click", openCardsCompare);
+	card.addEventListener("click", gameOverMessage);
 };
