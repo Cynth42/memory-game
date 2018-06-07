@@ -30,7 +30,6 @@ function shuffle(array) {
  const closeIcon = document.querySelector(".close");
  const popUp = document.getElementById("modal");
 
-
 /* reset moves*/
 moves = 0;
 counterDisplay.innerHTML = moves;
@@ -68,9 +67,9 @@ let star3 = document.getElementById("startThree");
 if (moves < 12){
 	starsRating.innerHTML = star1 + star2 + star3;
 } else if (moves < 16) {
-    starsRating.innerHTML = star1 + star2;
+	starsRating.innerHTML = star1 + star2;
 } else {
-    starsRating.innerHTML = star1;
+	starsRating.innerHTML = star1;
   }
 }
 
@@ -125,7 +124,7 @@ for (let i = 0; i < cards.length){
 cards[i].classList.remove("show", "open", "match", "disabled");
 }
 
- /*  - add the card to a *list* of "open" cards and check if cards are match or not (put this functionality in another function that you call from this one)*/
+ /*add the card to a *list* of "open" cards and check if cards are match or not (put this functionality in another function that you call from this one)*/
 function openCardsCompare() {
 openCards.push(this);
 if(openCards.length === 2){
@@ -141,10 +140,10 @@ if(openCards[0].type === openCards[1].type){
 /*if the cards do match, lock the cards in the open position */
 function match() {
 	openCards[0].classList.add("match", "disabled");
-    openCards[1].classList.add("match", "disabled");
-    openCards[0].classList.remove("show", "open");
-    openCards[1].classList.remove("show", "open");
-    openCards = [];
+	openCards[1].classList.add("match", "disabled");
+	openCards[0].classList.remove("show", "open");
+    	openCards[1].classList.remove("show", "open");
+    	openCards = [];
 }
 
 /*If the cards do not match, remove the cards from the list and hide the card's symbol*/
@@ -177,19 +176,20 @@ function enable(){
 
 /* congratulations when all cards match, show modal and moves, time and rating*/
 function gameOverMessage() {
-if (matchCard.length == 16) {
-	clearInterval(interval);
-	finalTime = timer.innerHTML;
+	
+	if (matchCard.length == 16) {
+		clearInterval(interval);
+		finalTime = timer.innerHTML;
 /*show congratulations on modal*/
-  	popUp.classList.add("show");
+  		popUp.classList.add("show");
 /*show star rating in modal*/
-  	starsRating = document.querySelector(".stars").innerHTML;
+  		starsRating = document.querySelector(".stars").innerHTML;
 /*showing move, rating, time on modal*/
- 	document.getElementById("finalMove").innerHTML = moves;
- 	document.getElementById("starRating").innerHTML = starRating;
- 	document.getElementById("totalTime").innerHTML = finalTime;
+ 		document.getElementById("finalMove").innerHTML = moves;
+ 		document.getElementById("starRating").innerHTML = starRating;
+ 		document.getElementById("totalTime").innerHTML = finalTime;
 /*call closeicon on modal*/
- 	closeModal();
+ 		closeModal();
 };
 }
 /*close icon on modal*/
