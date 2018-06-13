@@ -18,6 +18,7 @@ body {
 
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-size: 16px;
     font-family: 'Coda', cursive;
 }
 
@@ -36,13 +37,12 @@ h1 {
 /*
  * Styles for the deck of cards
  */
-
 .deck {
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
+    padding: 1rem;
+    border-radius: 4px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
@@ -54,22 +54,23 @@ h1 {
 .deck .card {
     height: 125px;
     width: 125px;
+    margin: 0.2rem 0.2rem;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .deck .card.open {
-    transform: rotateY(0);
     background: #02b3e4;
     cursor: default;
+
 }
+
 
 .deck .card.show {
     font-size: 33px;
@@ -79,35 +80,182 @@ h1 {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+
+}
+
+.deck .card.disabled {
+    pointer-events: none;
+    opacity: 0.9;
 }
 
 /*
  * Styles for the Score Panel
  */
-
 .score-panel {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
-.score-panel .stars {
+
+.stars-rating .star {
+  /*  list-style: none;*/
+    display: inline-block;
+    font-size: 1.375rem;
+    margin: 0 5px 0 0;
     margin: 0;
     padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
+
 }
 
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
+.score-panel .moves {
+    font-size: 1.375rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .score-panel .restart {
-    float: right;
+    margin-left: auto;
+    /*float: right;*/
+    cursor: pointer;
+    padding: 8px;
+    font-size: 1.375rem;
+}
+
+.stars-rating .fa-star {
+    color: #34FC00;
+}
+
+.score-panel .timer {
+    font-size: 1.375rem;
+    width: 70px;
+    display: inline-block;
+    margin-left: auto;
+}
+
+/*
+* Styles for congratulations modal
+*/
+.myModal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+}
+
+.myModal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-text {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 90%;
+    position: relative;
+    border: 1px solid #888;
+    transition: all 5s ease-in-out;
+    font-family: 'Coda', cursive;
+}
+
+.modal-text h2 {
+    margin-top: 0;
+    color: #011969
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.modal-text .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #aaaaaa;;
+}
+
+.modal-text .close:hover,
+.modal-text .close:focus{
+    color: #fffb00;
+    text-decoration: none;
     cursor: pointer;
 }
 
-.fa-star {
-color: #34FC00;
+.modal-text .textOne,
+.textTwo {
+    max-height: 30%;
+    overflow: auto;
+    text-align: center;
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 100 !important;
+}
+#rating i {
+    display: inline-block;
+}
+#playAgain {
+    background-color: #fffb00;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    font-family: 'Coda', cursive;
+    color: #011969;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* For small sreen*/
+@media screen and (max-width: 600px) {
+  .score-panel {
+    width: 300px;
+  }
+
+  .score-panel .timer,
+  .score-panel .moves,
+  .score-panel .restart {
+    font-size: 16px;
+  }
+
+  .stars-rating .star{
+    font-size: 16px;
+  }
+
+  .deck {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    padding: 10px;
+  }
+  .deck .card {
+    margin: 8px;
+    height: 85px;
+    flex: 0 20%;
+  }
+
+}
+
+/* For Tablets and larger screens*/
+@media screen and (min-width: 768px) {
+    .container {
+     font-size: 1.375rem;
+ }
+
+   .modal-text {
+     width: 60%;
+  }
 }
