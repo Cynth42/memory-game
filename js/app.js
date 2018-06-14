@@ -73,8 +73,8 @@ function initGame() {
 *reset rating
 */  const stars = document.querySelectorAll(".star");
 
-    stars[1].style.color =  "#34FC00";
-    stars[2].style.color =  "#34FC00";
+    stars[1].style.color = "#34FC00";
+    stars[2].style.color = "#34FC00";
 
 /*
 *reset timer
