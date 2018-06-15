@@ -1,21 +1,50 @@
 # Memory Game Project
 
+### Project 2 of Udacity's Front-End Nanodegree is a memory game based on Concentration which is browser-based Card Matching     Game relying on JavaScript. 
+
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Installation](#Installation)
+* [How To Play](#How To Play)
+* [Features(#Features)
+* [Built With](#Built With)
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Installation
+Download/clone to computer, open with favorite text editor, and play.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## How To Play
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+- The game begins when a card is clicked. Click on any card and you will see an image
+- Search for the identical image in other cards.
+- When you find the right one, both of them will stay flipped.
+- If you didn't find it, both of them of the images will disppear.
+- Try to find identical images in as less moves as possible to get a better rate.
+- Match all 16 pairs of images cards.  Once all pairs are turned over and matched, the game ends, displaying your score.
 
-## Contributing
+## Features
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+- Memory Game Logic
+- Congratulations Popup/Modal
+- Restart Button
+- Star Rating
+- Timer
+- Move Counter
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
-# memory-game
+## Built With
+
+Languages:
+
+- HTML
+- CSS
+- JS
+Frameworks/Libraries/APIs:
+
+- [Font Awesome](https://fontawesome.com/) - Font and icon toolkit
+- [Google Font](https://fonts.google.com/) - Font library
+
+- Specialthanks and appreciation to the Udacity community managers, project coaches and my new found mentor!
+
+
+
+
