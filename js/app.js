@@ -153,7 +153,7 @@ function noMatch() {
 }
 
 /*
-*temporarily disable cards
+*created a disable and enable functions to avoid clicking on the same card twice.  Idea came from study jam on slack                
 */
 function disable() {
   Array.prototype.filter.call(cards, function(card) {
