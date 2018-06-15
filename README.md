@@ -11,7 +11,7 @@
 
 
 ## Installation
-Download/clone to computer, open with favorite text editor, and play.
+Download/clone to computer to play.
 
 ## How To Play
 
