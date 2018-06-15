@@ -15,7 +15,7 @@
   let card = document.getElementsByClassName("card");
   //spreading out the array of cards to form a list
   let cards = [...card]
-//  console.log(cards);
+  console.log(cards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -72,7 +72,6 @@ function initGame() {
 /*
 *reset rating
 */  const stars = document.querySelectorAll(".star");
-
     stars[1].style.color = "#34FC00";
     stars[2].style.color = "#34FC00";
 
@@ -88,11 +87,9 @@ function initGame() {
     clickCard();
 }
 
-
 /*
 *set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
 */
-
 function clickCard () {
 for (i = 0; i < cards.length; i++) {
   card = cards[i];
@@ -189,7 +186,7 @@ function movesCounter() {
     minute = 0;
     hour = 0;
     startTimer();
-}
+ }
 
 /*
 * setting stars rating based on num of moves
@@ -197,13 +194,10 @@ function movesCounter() {
   const stars = document.querySelectorAll(".star");
   starHTML = "";
   if (moves <= 13){
-
     starHTML = "<i class='star fa fa-star'></i><i class='star fa fa-star'></i><i class='star fa fa-star'></i>";
-
     } else if (moves <= 16) {
     stars[2].style.color = "#011969";
     starHTML = "<i class='star fa fa-star'></i><i class='star fa fa-star'></i>";
-
     } else {
     stars[1].style.color = "#011969";
     starHTML = "<i class='star fa fa-star'></i>";
@@ -260,7 +254,7 @@ function gameOverMessage() {
 
 /*Timer stops*/
 function stopTimer() {
-    clearInterval(interval);
+  clearInterval(interval);
 }
 
 /*
@@ -284,9 +278,9 @@ function playAgain() {
   initGame();
 }
 
-// When the user clicks anywhere outside of the modal, close it
+/*When the user clicks anywhere outside of the modal, close it*/
 window.onclick = function(event) {
-    const popUp = document.getElementById("modal");
+  const popUp = document.getElementById("modal");
     if (event.target == popUp) {
         popUp.style.display = "none";
     }
