@@ -5,9 +5,9 @@
 ## Table of Contents
 
 * [Installation](#installation)
-* [How To Play](#how to play)
+* [How To Play](#howtoplay)
 * [Features](#features)
-* [Built With](bBuilt with)
+* [Built With](builtwith)
 
 
 ## Installation
