@@ -50,15 +50,11 @@ document.body.onload = initGame();
 /*Initialize Game*/
 function initGame() {
   const deck = document.getElementById("deck");
-
-  //shuffling the cards using the shuffle method
   cards = shuffle(cards);
-  //looping too remove all existing classes off each cards
   for (let card of cards) {
     deck.innerHTML = "";
     cards.forEach.call(cards, function(card) {
-    deck.appendChild(card);
-
+     deck.appendChild(card);
    });
      card.classList.remove("show", "open", "match", "disabled");
   }
