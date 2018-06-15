@@ -5,7 +5,7 @@
 ## Table of Contents
 
 * [Installation](#installation)
-* [How To Play](#instructions)
+* [Intructions](#instructions)
 * [Features](#features)
 * [Built With](builtwith)
 
@@ -13,7 +13,7 @@
 ## Installation
 Download/clone to computer to play.
 
-## How To Play
+## Instructions
 
 - The game begins when a card is clicked. Click on any card and you will see an image
 - Search for the identical image in other cards.
