@@ -6,7 +6,7 @@
 
 * [Installation](#Installation)
 * [How To Play](#How To Play)
-* [Features(#Features)
+* [Features](#Features)
 * [Built With](#Built With)
 
 
@@ -33,17 +33,15 @@ Download/clone to computer, open with favorite text editor, and play.
 
 ## Built With
 
-Languages:
-
 - HTML
 - CSS
 - JS
-Frameworks/Libraries/APIs:
 
-- [Font Awesome](https://fontawesome.com/) - Font and icon toolkit
-- [Google Font](https://fonts.google.com/) - Font library
+## Dependencies/Frameworks/Libraries/APIs:
+- [Font Awesome](https://fontawesome.com/) 
+- [Google Font](https://fonts.google.com/)
 
-- Specialthanks and appreciation to the Udacity community managers, project coaches and my new found mentor!
+- Special thanks and appreciation to the Udacity community managers, project coaches and my new found mentor!
 
 
 
