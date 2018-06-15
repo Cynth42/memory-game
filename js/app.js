@@ -85,7 +85,18 @@ function initGame() {
     const timer = document.querySelector(".timer");
     clearInterval(interval);
     timer.innerHTML = "0 mins 0 secs";
-    clickCard();
+    
+}
+
+
+/* open to display card's icons
+*  on the deck: display the card's symbol
+*/
+function cardsOpen() {
+  this.classList.toggle("open");
+  this.classList.toggle("show");
+  this.classList.toggle("disabled");
+  openCards.push(this);
 }
 
 /*
@@ -98,16 +109,6 @@ for (i = 0; i < cards.length; i++) {
   card.addEventListener("click", openCardsCompare);
   card.addEventListener("click", gameOver);
  }
-}
-
-/* open to display card's icons
-*  on the deck: display the card's symbol
-*/
-function cardsOpen() {
-  this.classList.toggle("open");
-  this.classList.toggle("show");
-  this.classList.toggle("disabled");
-  openCards.push(this);
 }
 
 /* compares two open cards to find a match, or no match
