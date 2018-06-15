@@ -1,11 +1,11 @@
 /*
- * Define Variables
+ * Declare Variables
  */
- let matchCard = document.getElementsByClassName("match");
  let openCards = [];
+ let starHTML = "";
  let moves = 0;
  let interval;
- let starHTML = "";
+ let matchCard = document.getElementsByClassName("match");
  let totalmoves = document.getElementById("finalMove");
  let totalTime = document.getElementById("finalTime");
 
@@ -15,7 +15,7 @@
   let card = document.getElementsByClassName("card");
   //spreading out the array of cards to form a list
   let cards = [...card]
-  console.log(cards);
+//  console.log(cards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -88,40 +88,43 @@ function initGame() {
     clickCard();
 }
 
-  /*
-  *set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
-  */
+
+/*
+*set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
+*/
+
 function clickCard () {
-  for (i = 0; i < cards.length; i++) {
-    card = cards[i];
-    card.addEventListener("click", toggleCards);
-    card.addEventListener("click", openCardsCompare);
-    card.addEventListener("click", gameOver);
-   }
+for (i = 0; i < cards.length; i++) {
+  card = cards[i];
+  card.addEventListener("click", cardsOpen);
+  card.addEventListener("click", openCardsCompare);
+  card.addEventListener("click", gameOver);
+ }
+}
 
-  }
-
-  /* open to display card's icons
-  *  on the deck: display the card's symbol
-  */
-  function toggleCards() {
-    this.classList.toggle("open");
-    this.classList.toggle("show");
-    this.classList.toggle("disabled");
-  }
+/* open to display card's icons
+*  on the deck: display the card's symbol
+*/
+function cardsOpen() {
+  this.classList.toggle("open");
+  this.classList.toggle("show");
+  this.classList.toggle("disabled");
+  openCards.push(this);
+}
 
 /* compares two open cards to find a match, or no match
 *then increment the move counter and display it on the page
 */
 function openCardsCompare() {
+  const maxOpenCards = 2;
   openCards.push(this);
-  if(openCards.length === 2){
-    moveCounter();
-  if(openCards[0].firstElementChild.className=== openCards[1].firstElementChild.className) {
+  if(openCards.length === maxOpenCards) {
+    movesCounter();
+    if(openCards[0].firstElementChild.className ===   openCards[1].firstElementChild.className) {
     match();
-} else {
+  } else {
     noMatch();
-  }
+   }
  }
 }
 
@@ -139,7 +142,7 @@ function match() {
 /*if the cards do not match, remove the cards from the list and *hide the card's symbol. start a timeout, and then flips
 *the cards back and clears the openCards array.
 */
-function noMatch(){
+function noMatch() {
   openCards[0].classList.add("noMatch");
   openCards[1].classList.add("noMatch");
   disable();
@@ -173,31 +176,29 @@ function enable() {
 }
 
 /* update moves*/
-function moveCounter() {
+function movesCounter() {
   const counterDisplay = document.querySelector(".moves");
   moves++;
   counterDisplay.innerHTML = moves;
 
 /*
-*start timer on first moveclick
+*start timer on second click = first moveclick
 */
-  if (moves == 1) {
+ if (moves == 1) {
     second = 0;
     minute = 0;
     hour = 0;
     startTimer();
-  }
+}
 
 /*
 * setting stars rating based on num of moves
 */
   const stars = document.querySelectorAll(".star");
-
   starHTML = "";
   if (moves <= 13){
 
     starHTML = "<i class='star fa fa-star'></i><i class='star fa fa-star'></i><i class='star fa fa-star'></i>";
-
 
     } else if (moves <= 16) {
     stars[2].style.color = "#011969";
@@ -231,11 +232,6 @@ function startTimer() {
 },1000);
 }
 
-/*Timer stops*/
-function stopTimer() {
-    clearInterval(interval);
-}
-
 /*Checks to see if game over*/
 function gameOver() {
   const totalCards = 16;
@@ -262,6 +258,11 @@ function gameOverMessage() {
   closeModal();
 }
 
+/*Timer stops*/
+function stopTimer() {
+    clearInterval(interval);
+}
+
 /*
 *close icon on modal
 */
@@ -274,14 +275,6 @@ function closeModal() {
 })
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    const popUp = document.getElementById("modal");
-    if (event.target == popUp) {
-        popUp.style.display = "none";
-    }
-  }
-
 /*
 *play Again
 */
@@ -290,3 +283,11 @@ function playAgain() {
   popUp.classList.remove("show");
   initGame();
 }
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    const popUp = document.getElementById("modal");
+    if (event.target == popUp) {
+        popUp.style.display = "none";
+    }
+  }

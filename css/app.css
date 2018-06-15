@@ -31,7 +31,7 @@ body {
 
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 300px;
 }
 
 /*
@@ -88,9 +88,9 @@ h1 {
     font-size: 33px;
 }
 
-.deck .card.match {
+.deck .card.matc{
     animation-name: stretch;
-    animation-duration: .75s; /*1.5s;*/
+    animation-duration: .75s;
     animation-timing-function: ease-out;
     animation-delay: 0s;
     animation-direction: alternate;
@@ -124,7 +124,6 @@ h1 {
     background: #FF40FF;
 }
 
-
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -151,7 +150,6 @@ h1 {
     align-items: center;
 }
 
-
 .stars-rating .star {
   /*  list-style: none;*/
     display: inline-block;
@@ -159,7 +157,6 @@ h1 {
     margin: 0 5px 0 0;
     margin: 0;
     padding: 0;
-
 }
 
 .score-panel .moves {
@@ -254,9 +251,11 @@ h1 {
     visibility: visible !important;
     opacity: 100 !important;
 }
+
 #rating i {
     display: inline-block;
 }
+
 #playAgain {
     background-color: #fffb00;
     padding: 0.7rem 1rem;
