@@ -4,10 +4,10 @@
 
 ## Table of Contents
 
-* [Installation](#Installation)
-* [How To Play](#How To Play)
-* [Features](#Features)
-* [Built With](#Built With)
+* [Installation](#installation)
+* [How To Play](#how to play)
+* [Features](#features)
+* [Built With](bBuilt with)
 
 
 ## Installation
