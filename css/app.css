@@ -88,7 +88,7 @@ h1 {
     font-size: 33px;
 }
 
-.deck .card.matc{
+.deck .card.match{
     animation-name: stretch;
     animation-duration: .75s;
     animation-timing-function: ease-out;
@@ -283,22 +283,22 @@ h1 {
     font-size: 16px;
   }
 
-  .stars-rating .star{
+ .stars-rating .star{
     font-size: 16px;
   }
 
-  .deck {
+ .deck {
     width: 100%;
     min-width: 360px;
     min-height: 100%;
     padding: 10px;
   }
-  .deck .card {
+    
+ .deck .card {
     margin: 8px;
     height: 85px;
     flex: 0 20%;
   }
-
 }
 
 /* For Tablets and larger screens*/
