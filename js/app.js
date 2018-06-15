@@ -35,7 +35,7 @@ function shuffle(array) {
 };
 
 /*
- * Initialize Game
+ * 
  * shuffle the list of cards using the provided "shuffle" method below when page is refreshed
 */
 let start = document.getElementById("start");
@@ -44,9 +44,10 @@ start.addEventListener("click", event => {
 
 });
 
-/*execute a JavaScript immediately after a page has been loaded*/
+/*execute a JavaScript immediately after a page has been loaded from StackOverFlow*/
 document.body.onload = initGame();
 
+/*Initialize Game*/
 function initGame() {
   const deck = document.getElementById("deck");
 
@@ -117,7 +118,7 @@ function openCardsCompare() {
   openCards.push(this);
   if(openCards.length === maxOpenCards) {
     movesCounter();
-    if(openCards[0].firstElementChild.className ===   openCards[1].firstElementChild.className) {
+    if(openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
     match();
   } else {
     noMatch();
@@ -205,7 +206,7 @@ function movesCounter() {
 }
 
 /*
-*timer
+*timer from Slack Study Jam 
 */
 function startTimer() {
   const timer = document.querySelector(".timer");
