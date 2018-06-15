@@ -24,7 +24,6 @@ Download/clone to computer to play.
 
 ## Features
 
-- Memory Game Logic
 - Congratulations Popup/Modal
 - Restart Button
 - Star Rating
