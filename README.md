@@ -17,10 +17,10 @@ Download/clone to computer to play.
 
 - The game begins when a card is clicked. Click on any card and you will see an image
 - Search for the identical image in other cards.
-- When you find the right one, both of them will stay flipped.
-- If you didn't find it, both of them of the images will disppear.
+- When you find the same image, both of them will stay opened.
+- If you didn't find it, both of the images will disppear.
 - Try to find identical images in as less moves as possible to get a better rate.
-- Match all 16 pairs of images cards.  Once all pairs are turned over and matched, the game ends, displaying your score.
+- Match all 16 pairs of images/cards.  Once all pairs are turned over and matched, the game ends, displaying your score.
 
 ## Features
 
@@ -34,13 +34,13 @@ Download/clone to computer to play.
 
 - HTML
 - CSS
-- JS
+- JS[ES5/6]
 
 ## Dependencies/Frameworks/Libraries/APIs:
 - [Font Awesome](https://fontawesome.com/) 
 - [Google Font](https://fonts.google.com/)
 
-- Special thanks and appreciation to the Udacity community managers, project coaches and my new found mentor!
+- Special thanks and appreciation to the Udacity community managers, project coaches and my study buddy!
 
 
 
