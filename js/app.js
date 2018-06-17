@@ -46,7 +46,7 @@ start.addEventListener("click", event => {
  */
 document.body.onload = initGame();
 
-/*
+/**
  * Initialize Game
  */
 function initGame() {
@@ -60,21 +60,21 @@ function initGame() {
       card.classList.remove("show", "open", "match", "disabled");
   }
 
-/*
+/**
  * reset moves
  */
      moves = 0;
      const counterDisplay = document.querySelector(".moves");
      counterDisplay.innerHTML = moves;
 
-/*
+/**
  * reset rating
  */ 
      const stars = document.querySelectorAll(".star");
      stars[1].style.color = "#34FC00";
      stars[2].style.color = "#34FC00";
 
-/*
+/**
  * reset timer
  */
      second = 0;
@@ -86,7 +86,7 @@ function initGame() {
      clickCard();
 }
 
-/*
+/**
  * set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
  */
 function clickCard () {
@@ -98,7 +98,7 @@ function clickCard () {
   }
 }
 
-/* 
+/** 
  * open to display card's icons
  * on the deck: display the card's symbol
  */
