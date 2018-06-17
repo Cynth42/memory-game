@@ -81,12 +81,25 @@ function initGame() {
     const timer = document.querySelector(".timer");
     clearInterval(interval);
     timer.innerHTML = "0 mins 0 secs";
-    
+    clickCard();
+}
+
+
+/*
+*set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
+*/
+function clickCard () {
+ for (i = 0; i < cards.length; i++) {
+  card = cards[i];
+  card.addEventListener("click", cardsOpen);
+  card.addEventListener("click", openCardsCompare);
+  card.addEventListener("click", gameOver);
+ }
 }
 
 
 /* open to display card's icons
-*  on the deck: display the card's symbol
+ * on the deck: display the card's symbol
 */
 function cardsOpen() {
   this.classList.toggle("open");
@@ -95,48 +108,39 @@ function cardsOpen() {
   openCards.push(this);
 }
 
-/*
-*set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
-*/
-function clickCard () {
-for (i = 0; i < cards.length; i++) {
-  card = cards[i];
-  card.addEventListener("click", cardsOpen);
-  card.addEventListener("click", openCardsCompare);
-  card.addEventListener("click", gameOver);
- }
-}
 
 /* compares two open cards to find a match, or no match
-*then increment the move counter and display it on the page
+ *then increment the move counter and display it on the page
 */
 function openCardsCompare() {
   const maxOpenCards = 2;
   openCards.push(this);
   if(openCards.length === maxOpenCards) {
     movesCounter();
+   if(openCards > 1) {
     if(openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
     match();
   } else {
     noMatch();
    }
+  }
  }
 }
 
 /*
-*if the cards do match, lock the cards in the open position
+ *if the cards do match, lock the cards in the open position
 */
 function match() {
-   openCards[0].classList.add("match", "disabled");
-   openCards[1].classList.add("match", "disabled");
-   openCards[0].classList.remove("show", "open");
-   openCards[1].classList.remove("show", "open");
-   openCards = [];
+  openCards[0].classList.add("match", "disabled");
+  openCards[1].classList.add("match", "disabled");
+  openCards[0].classList.remove("show", "open");
+  openCards[1].classList.remove("show", "open");
+  openCards = [];
 }
 
 /*if the cards do not match, remove the cards from the list and *hide the card's symbol. start a timeout, and then flips
-*the cards back and clears the openCards array.
-*/
+  *the cards back and clears the openCards array.
+ */
 function noMatch() {
   openCards[0].classList.add("noMatch");
   openCards[1].classList.add("noMatch");
@@ -150,7 +154,7 @@ function noMatch() {
 }
 
 /*
-*created a disable and enable functions to avoid clicking on the same card twice.  Idea came from study jam on slack                
+ *created a disable and enable functions to avoid clicking on the same card twice.  Idea came from study jam on slack                
 */
 function disable() {
   Array.prototype.filter.call(cards, function(card) {
@@ -159,7 +163,7 @@ function disable() {
 }
 
 /*
-*enable cards and disable matched cards
+ *enable cards and disable matched cards
 */
 function enable() {
   Array.prototype.filter.call(cards, function(card) {
@@ -170,24 +174,26 @@ function enable() {
  });
 }
 
-/* update moves*/
+/* 
+ *update moves
+*/
 function movesCounter() {
   const counterDisplay = document.querySelector(".moves");
   moves++;
   counterDisplay.innerHTML = moves;
 
 /*
-*start timer on second click = first moveclick
+ *start timer on second click = first moveclick
 */
  if (moves == 1) {
-    second = 0;
-    minute = 0;
-    hour = 0;
-    startTimer();
+   second = 0;
+   minute = 0;
+   hour = 0;
+   startTimer();
  }
 
 /*
-* setting stars rating based on num of moves
+ * setting stars rating based on num of moves
 */
   const stars = document.querySelectorAll(".star");
   starHTML = "";
@@ -203,7 +209,7 @@ function movesCounter() {
 }
 
 /*
-*timer from Slack Study Jam 
+ *timer
 */
 function startTimer() {
   const timer = document.querySelector(".timer");
@@ -216,25 +222,27 @@ function startTimer() {
   if (second == 60) {
     minute++;
     second = 0;
-}
+ }
   if (minute == 60) {
     hour++;
     minute = 0;
-}
-},1000);
+ }
+ },1000);
 }
 
-/*Checks to see if game over*/
+/*
+ *Checks to see if game over
+*/
 function gameOver() {
   const totalCards = 16;
-  if (matchCard.length == totalCards) {
+  if(matchCard.length == totalCards) {
     clearInterval(interval);
     gameOverMessage()
  }
 }
 
 /*
-*congratulates users when all cards match, show modal, moves, time and rating
+ *congratulates users when all cards match, show modal, moves, time and rating
 */
 function gameOverMessage() {
   const timer = document.querySelector(".timer");
@@ -276,7 +284,9 @@ function playAgain() {
   initGame();
 }
 
-/*When the user clicks anywhere outside of the modal, close it*/
+/*
+ *When the user clicks anywhere outside of the modal, close it
+*/
 window.onclick = function(event) {
   const popUp = document.getElementById("modal");
     if (event.target == popUp) {
