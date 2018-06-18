@@ -7,7 +7,7 @@
 * [Installation](#installation)
 * [Intructions](#instructions)
 * [Features](#features)
-* [Built With](builtwith)
+* [Used](#used)
 * [Credits](#credits)
 
 
@@ -31,7 +31,7 @@ Download/clone to computer to play.
 - Timer
 - Move Counter
 
-## Built With
+## Used
 
 - HTML
 - CSS
