@@ -14,7 +14,7 @@
  */
  let card = document.getElementsByClassName("card");
 //spreading out the array of cards to form a list
- let cards = [...card]
+ let cards = [...card];
  console.log(cards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -71,7 +71,7 @@ function initGame() {
  * reset rating
  */ 
      const stars = document.querySelectorAll(".star");
-     stars[1].style.color = "#34f00";
+     stars[1].style.color = "#34fc00";
      stars[2].style.color = "#34fc00";
 
 /**
@@ -240,7 +240,7 @@ function gameOver() {
   const totalCards = 16; 
   if(matchCard.length == totalCards) {
     clearInterval(interval);
-    gameOverMessage()
+    gameOverMessage();
  }
 }
 
@@ -296,5 +296,6 @@ window.onclick = function(event) {
   const popUp = document.getElementById("modal");
     if (event.target == popUp) {
         popUp.style.display = "none";
+        initGame;
     }
  }
