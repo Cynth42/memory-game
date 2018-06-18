@@ -7,7 +7,8 @@
 * [Installation](#installation)
 * [Intructions](#instructions)
 * [Features](#features)
-* [Built With](builtwith)
+* [Built With](#builtwith)
+* [Credits](#credits)
 
 
 ## Installation
@@ -40,7 +41,8 @@ Download/clone to computer to play.
 - [Font Awesome](https://fontawesome.com/) 
 - [Google Font](https://fonts.google.com/)
 
-- Special thanks and appreciation to the Udacity community managers, project coaches and my study buddy!
+## Credits
+- Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
 
 
 
