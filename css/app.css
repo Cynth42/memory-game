@@ -40,7 +40,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #D6D6D6 0%, #008F00 100%);
+    background: linear-gradient(160deg, ##d6d6d6 0%, #008f00 100%);
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -67,20 +67,20 @@ h1 {
 
 .deck .card.open {
     animation: flip 0.4s;
-    background: #5534FF;
+    background: #5534ff;
     cursor: default;
 
 }
 
 @keyframes flip {
   0% {
-    background-color: #FFFB00;
-    color: #FFFB00;
+    background-color: #fffb00;
+    color: #fffb00;
     transform: rotateY(180deg);
   }
   60% {
-    background-color: #8EFA00;
-    color: #8EFA00;
+    background-color: #8efa00;
+    color: #8efa00;
   }
 }
 
@@ -107,21 +107,21 @@ h1 {
     
   0% {
     transform: scale(.3);
-    background-color: #FF40FF;
+    background-color: #ff40ff;
     border-radius: 100%;
   }
   50% {
-    background-color: #FF9300;
+    background-color: #ff9300;
   }
   100% {
     transform: scale(1.5);
-    background-color: #FFFB00;
+    background-color: #fffb00;
   }
 }
 
 .deck .card.noMatch {
     animation-name: pulse 5s infinite;
-    background: #FF40FF;
+    background: #ff40ff;
 }
 
 @keyframes pulse {
@@ -174,7 +174,7 @@ h1 {
 }
 
 .stars-rating .fa-star {
-    color: #34FC00;
+    color: #34fc00;
 }
 
 .score-panel .timer {
