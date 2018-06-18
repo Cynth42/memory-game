@@ -52,7 +52,7 @@ document.body.onload = initGame();
 function initGame() {
   const deck = document.getElementById("deck");
   cards = shuffle(cards);
-  for (let card of cards) { 
+  for (card of cards) { 
     deck.innerHTML = "";
     cards.forEach.call(cards, function(card) {
       deck.appendChild(card);
@@ -71,8 +71,8 @@ function initGame() {
  * reset rating
  */ 
      const stars = document.querySelectorAll(".star");
-     stars[1].style.color = "#34FC00";
-     stars[2].style.color = "#34FC00";
+     stars[1].style.color = "#34f00";
+     stars[2].style.color = "#34fc00";
 
 /**
  * reset timer
@@ -83,47 +83,49 @@ function initGame() {
      const timer = document.querySelector(".timer");
      clearInterval(interval);
      timer.innerHTML = "0 mins 0 secs";
-     clickCard();
+   
 }
 
 /**
- * set up the event listener for a card. If a card is clicked: looping over NodeList of the cards to add event listeners to each card for users clicks
+ * If a closed card is clicked, respond with function.
+ * looping over NodeList of the cards to add event listeners to each card for users clicks
  */
-function clickCard () {
-  for (i = 0; i < cards.length; i++) { 
-    card = cards[i];
-    card.addEventListener("click", cardsOpen);
-    card.addEventListener("click", openCardsCompare);
-    card.addEventListener("click", gameOver);
-  }
+for (card of cards) {
+  card.addEventListener("click", event => { 
+   eventTarget = event.target;
+    if (eventTarget.className == 'card') {
+      cardsOpen(eventTarget);
+      openCardsCompare(eventTarget);
+      gameOver();
+    }
+  });
 }
 
 /** 
  * open to display card's icons
  * on the deck: display the card's symbol
  */
-function cardsOpen() {
-  this.classList.toggle("open");
-  this.classList.toggle("show");
-  this.classList.toggle("disabled");
+function cardsOpen(eventTarget) {
+  eventTarget.classList.toggle("open");
+  eventTarget.classList.toggle("show");
+  eventTarget.classList.toggle("disabled");
+  openCards.push(eventTarget);
+ 
 }
 
 /** 
  * compares two open cards to find a match, or no match
  * then increment the move counter and display it on the page
  */
-function openCardsCompare() { 
+function openCardsCompare(eventTarget) { 
   const numOpenCards = 2; 
-  openCards.push(this);
   if (openCards.length === numOpenCards) {
-    movesCounter();
-    if (openCards > 1) {    
-      if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {  
-        match();
-      } else {
-        noMatch();
-    }
-  }
+    movesCounter(); 
+    if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {  
+     match();
+    } else {
+    noMatch();
+  } 
  }
 }
 
@@ -186,12 +188,12 @@ function movesCounter() {
 /**
  * start timer on first moveclick
  */
- if (moves == 1) {
+  if (moves == 1) {
     second = 0;
     minute = 0;
     hour = 0;
     startTimer();
- }
+  }
 
 /**
  * setting stars rating based on num of moves
