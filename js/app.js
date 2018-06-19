@@ -50,6 +50,7 @@ document.body.onload = initGame();
  * Initialize Game
  */
 function initGame() {
+  openCards = [];
   const deck = document.getElementById("deck");
   cards = shuffle(cards);
   for (card of cards) { 
@@ -59,6 +60,8 @@ function initGame() {
    });
       card.classList.remove("show", "open", "match", "disabled");
   }
+
+ setTimeout(function() {
 
 /**
  * reset moves
@@ -83,7 +86,7 @@ function initGame() {
      const timer = document.querySelector(".timer");
      clearInterval(interval);
      timer.innerHTML = "0 mins 0 secs";
-   
+   },500)
 }
 
 /**
