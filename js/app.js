@@ -215,7 +215,7 @@ function movesCounter() {
 }
 
 /**
- *timer from study jam on slack
+ *timer 
  */
 function startTimer() {
   const timer = document.querySelector(".timer");
