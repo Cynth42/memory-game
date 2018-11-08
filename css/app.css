@@ -40,7 +40,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #D6D6D6 0%, #008F00 100%);
+    background: linear-gradient(160deg, #d6d6d6 0%, #008f00 100%);
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -66,21 +66,24 @@ h1 {
 }
 
 .deck .card.open {
+    transform: rotateY(0);
     animation: flip 0.4s;
-    background: #5534FF;
+    background: #5534ff;
     cursor: default;
 
 }
 
 @keyframes flip {
+
   0% {
-    background-color: #FFFB00;
-    color: #FFFB00;
+    background-color: #fffb00;
+    color: #fffb00;
     transform: rotateY(180deg);
   }
+
   60% {
-    background-color: #8EFA00;
-    color: #8EFA00;
+    background-color: #8efa00;
+    color: #8efa00;
   }
 }
 
@@ -88,47 +91,51 @@ h1 {
     font-size: 33px;
 }
 
-.deck .card.matc{
+.deck .card.match {
     animation-name: stretch;
     animation-duration: .75s;
     animation-timing-function: ease-out;
     animation-delay: 0s;
-    animation-direction: alternate;
+    animation-direction: normal;
     animation-iteration-count: 1;
     animation-fill-mode: none;
     animation-play-state: running;
     cursor: default;
-    background: #02ccba;
+    background: #008f00; /* #02ccba;*/
     font-size: 33px;
 
 }
 
 @keyframes stretch {
+
   0% {
     transform: scale(.3);
-    background-color: #FF40FF;
+    background-color: #ff40ff;
     border-radius: 100%;
   }
+
   50% {
-    background-color: #FF9300;
+    background-color: #ff9300;
   }
 
   100% {
     transform: scale(1.5);
-    background-color: #FFFB00;
+    background-color: #fffb00;
   }
 }
 
 .deck .card.noMatch {
     animation-name: pulse 5s infinite;
-    background: #FF40FF;
+    background: #ff40ff;
 }
 
 @keyframes pulse {
+
   0% {
     transform: scale(1);
 
   }
+
   50% {
     transform: scale(1);
   }
@@ -139,7 +146,7 @@ h1 {
     opacity: 0.9;
 }
 
-/*
+/**
  * Styles for the Score Panel
  */
 .score-panel {
@@ -151,7 +158,6 @@ h1 {
 }
 
 .stars-rating .star {
-  /*  list-style: none;*/
     display: inline-block;
     font-size: 1.375rem;
     margin: 0 5px 0 0;
@@ -173,7 +179,7 @@ h1 {
 }
 
 .stars-rating .fa-star {
-    color: #34FC00;
+    color: #34fc00;
 }
 
 .score-panel .timer {
@@ -184,9 +190,9 @@ h1 {
 }
 
 /*
-* Styles for congratulations modal
-*/
-.myModal{
+ * Styles for congratulations modal
+ */
+.my-modal{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -199,7 +205,7 @@ h1 {
     background-color: rgba(0,0,0,0.4);
 }
 
-.myModal:target {
+.my-modal:target {
     visibility: visible;
     opacity: 1;
 }
@@ -220,9 +226,11 @@ h1 {
     margin-top: 0;
     color: #011969
     font-family: Tahoma, Arial, sans-serif;
+    border-bottom: 2px solid #e4e4e4;
+
 }
 
-.modal-text .close {
+.modal-text .exit {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -230,22 +238,31 @@ h1 {
     font-size: 40px;
     font-weight: bold;
     text-decoration: none;
-    color: #aaaaaa;;
+    color: #000;
+    padding: 0 10px;
+    line-height: 40px;
+
 }
 
-.modal-text .close:hover,
-.modal-text .close:focus{
-    color: #fffb00;
+.modal-text .exit:hover,
+.modal-text .exit:focus{
+    color: #8efa00; /*#fffb00;*/
     text-decoration: none;
     cursor: pointer;
+
 }
 
-.modal-text .textOne,
-.textTwo {
+.modal-text .text-one,
+.text-two {
     max-height: 30%;
     overflow: auto;
     text-align: center;
+
 }
+
+.modal-text .text-two {
+    border-bottom: 2px solid #e4e4e4;
+  }
 
 .show {
     visibility: visible !important;
@@ -256,22 +273,50 @@ h1 {
     display: inline-block;
 }
 
-#playAgain {
-    background-color: #fffb00;
-    padding: 0.7rem 1rem;
-    font-size: 1.1rem;
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    font-family: 'Coda', cursive;
-    color: #011969;
-    font-weight: bold;
-    border-radius: 5px;
+
+.modal-options {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
 }
 
-/*media queries
-* For small sreen
-*/
+#modal-close {
+    padding: 5px;
+    border-radius: 3px;
+    border: solid 1px #aaa;
+    background-color: #ebebeb;
+    font-family: 'Coda', cursive;
+    width: 25%;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+    color: #fff;
+    background-color: #757575;
+    cursor: pointer;
+}
+
+#play-again {
+    background-color: #8efa00;
+    font-family: 'Coda', cursive;
+    width: 25%;
+    padding: 5px;
+    border-radius: 3px;
+    border: solid 1px #aaa;
+    font-weight: bold;
+}
+
+#play-again:hover,
+#play-again:focus {
+    background-color: #ebebeb;
+    color: #011969;
+    cursor: pointer;
+}
+
+/*
+ * media queries
+ * For small sreen
+ */
 @media screen and (max-width: 600px) {
   .score-panel {
     width: 300px;
@@ -293,6 +338,7 @@ h1 {
     min-height: 100%;
     padding: 10px;
   }
+
   .deck .card {
     margin: 8px;
     height: 85px;
@@ -301,13 +347,14 @@ h1 {
 
 }
 
-/* For Tablets and larger screens*/
+/*
+ * For Tablets and larger screens
+ */
 @media screen and (min-width: 768px) {
     .container {
      font-size: 1.375rem;
  }
-
-   .modal-text {
+    .modal-text {
      width: 60%;
   }
 }
