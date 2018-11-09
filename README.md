@@ -1,21 +1,49 @@
 # Memory Game Project
 
+### Project 2 of Udacity's Front-End Nanodegree is a memory game based on Concentration which is browser-based Card Matching     Game relying on JavaScript. 
+
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Installation](#installation)
+* [Intructions](#instructions)
+* [Features](#features)
+* [Used](#used)
+* [Credits](#credits)
+
+
+## Installation
+Download/clone to computer to play.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+- The game begins when a card is clicked. Click on any card and you will see an image
+- Search for the identical image in other cards.
+- When you find the same image, both of them will stay opened.
+- If you didn't find it, both of the images will disppear.
+- Try to find identical images in as less moves as possible to get a better rate.
+- Match all 16 pairs of images/cards.  Once all pairs are turned over and matched, the game ends, displaying your score.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Features
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+- Congratulations Popup/Modal
+- Restart Button
+- Star Rating
+- Timer
+- Move Counter
 
-## Contributing
+## Used
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+- HTML
+- CSS
+- JS[ES5/6]
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
-# memory-game
+## Dependencies/Frameworks/Libraries/APIs:
+- [Font Awesome](https://fontawesome.com/) 
+- [Google Font](https://fonts.google.com/)
+
+## Credits
+- Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
+
+
+
+

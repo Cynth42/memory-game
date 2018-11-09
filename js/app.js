@@ -31,7 +31,6 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 };
 
@@ -52,6 +51,9 @@ start.addEventListener("click", event => {
  */
 document.body.onload = initGame();
 
+/**
+ * Initialize Game
+ */
 function initGame() {
   openCards = [];
   //matchCard = 0;
@@ -150,11 +152,11 @@ function openCardsCompare(eventTarget) {
  * open position
  */
 function match() {
-   openCards[0].classList.add("match", "disabled");
-   openCards[1].classList.add("match", "disabled");
-   openCards[0].classList.remove("show", "open");
-   openCards[1].classList.remove("show", "open");
-   openCards = [];
+  openCards[0].classList.add("match", "disabled");
+  openCards[1].classList.add("match", "disabled");
+  openCards[0].classList.remove("show", "open");
+  openCards[1].classList.remove("show", "open");
+  openCards = [];
 }
 
 /**
@@ -172,15 +174,15 @@ function noMatch() {
   openCards[1].classList.remove("show", "open", "noMatch");
   enable();
   openCards = [];
-},1000);
+ },1000);
 }
 
 /**
  * Temporarily disable cards
  */
 function disable() {
-  Array.prototype.filter.call(cards, function(card) {
-    card.classList.add('disabled');
+   Array.prototype.filter.call(cards, function(card) {
+     card.classList.add('disabled');
  });
 }
 
@@ -188,10 +190,10 @@ function disable() {
  * Enable cards and disable matched cards
  */
 function enable() {
-  Array.prototype.filter.call(cards, function(card) {
-    card.classList.remove('disabled');
-    for(let i = 0; i < matchCard.length; i++) {
-      matchCard[i].classList.add("disabled");
+   Array.prototype.filter.call(cards, function(card) {
+     card.classList.remove('disabled');
+     for(let i = 0; i < matchCard.length; i++) {
+       matchCard[i].classList.add("disabled");
   }
  });
 }
@@ -212,7 +214,7 @@ if (moves == 1) {
     minute = 0;
     hour = 0;
     startTimer();
-}
+  }
 
 /**
  * setting stars rating based on num of moves
@@ -220,7 +222,6 @@ if (moves == 1) {
   const stars = document.querySelectorAll(".star");
   starHTML = "";
   if (moves <= 13){
-
     starHTML = "<i class='star fa fa-star'></i><i class='star fa fa-star'></i><i class='star fa fa-star'></i>";
 
     } else if (moves <= 16) {
@@ -260,7 +261,7 @@ function startTimer() {
  */
 function gameOver() {
   const totalCards = 16;
-  if (matchCard.length == totalCards) {
+  if(matchCard.length == totalCards) {
     clearInterval(interval);
     gameOverMessage();
  }
@@ -331,4 +332,4 @@ window.onclick = function(event) {
       popUp.classList.remove("show");
       initGame();
     }
-  }
+ }
