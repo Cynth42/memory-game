@@ -207,7 +207,7 @@ function movesCounter() {
   counterDisplay.innerHTML = moves;
 
 /**
- * start timer on firstClick = first move
+ * Start timer on firstClick = first move
  */
 if (moves == 1) {
     second = 0;
@@ -217,7 +217,7 @@ if (moves == 1) {
   }
 
 /**
- * setting stars rating based on num of moves
+ * Setting stars rating based on num of moves
  */
   const stars = document.querySelectorAll(".star");
   starHTML = "";
@@ -297,7 +297,7 @@ function stopTimer() {
  */
 function closeModal() {
   const closeIcon = document.querySelector(".exit");
-  closeIcon.addEventListener("click", function(event){
+  closeIcon.addEventListener("click", function(DeactivateConfetti){
   const popUp = document.getElementById("modal");
   popUp.classList.remove("show");
   //initGame();
@@ -332,4 +332,4 @@ window.onclick = function(event) {
       popUp.classList.remove("show");
       initGame();
     }
- }
+}
