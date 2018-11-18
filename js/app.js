@@ -329,7 +329,7 @@ function playAgain() {
 
 /**
  * When the user clicks anywhere outside of the
- * modal, close it from stackoverflow
+ * modal, close it: From stackoverflow
  */
 window.onclick = function(event) {
   const popUp = document.getElementById("modal");

@@ -2,6 +2,9 @@
 
 ### Udacity's Front-End Nanodegree: Project 2.  It is based on Concentration, a browser-based Card Matching Game relying on JavaScript.
 
+Check out [live view](https://cynth42.github.io/memory-game/) of App here.
+
+
 ## Table of Contents
 
 * [Installation](#installation)
