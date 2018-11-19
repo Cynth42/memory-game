@@ -302,7 +302,6 @@ function closeModal() {
   const popUp = document.getElementById("modal");
   popUp.classList.remove("show");
   document.querySelector("#canvas").style.visibility="hidden";
-
   //initGame();
 })
 }
@@ -329,7 +328,7 @@ function playAgain() {
 
 /**
  * When the user clicks anywhere outside of the
- * modal, close it: From stackoverflow
+ * modal, close it.
  */
 window.onclick = function(event) {
   const popUp = document.getElementById("modal");
@@ -341,7 +340,6 @@ window.onclick = function(event) {
 }
 
 function confettiAnimation() {
-
     document.querySelector("#canvas").style.visibility="visible";
 
    //canvas init
@@ -356,7 +354,7 @@ function confettiAnimation() {
     canvas.width = W;
  	  canvas.height = H;
 
-    const colorOptions = [
+    const colorUsed = [
       "DodgerBlue",
       "OliveDrab",
       "Gold",
@@ -383,7 +381,7 @@ function confettiAnimation() {
       this.r = randomFromTo(11, 33); // radius
       this.d = Math.random() * maxConfettis + 11; //density
       this.color =
-      colorOptions[Math.floor(Math.random() * colorOptions.length)];
+      colorUsed[Math.floor(Math.random() * colorUsed.length)];
       this.tilt = Math.floor(Math.random() * 33) - 11;
       this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
       this.tiltAngle = 0;
@@ -397,13 +395,12 @@ function confettiAnimation() {
        return context.stroke();
      };
    }
-
    // Draws the flakes
-   function draw() {
+   function Draw() {
      const results = [];
 
     //Set recursive frame
-     requestAnimationFrame(draw);
+     requestAnimationFrame(Draw);
 
      context.clearRect(0, 0, W, window.innerHeight);
 
@@ -415,7 +412,6 @@ function confettiAnimation() {
      let remainingFlakes = 0;
      for (var i = 0; i < maxConfettis; i++) {
        particle = particles[i];
-
        particle.tiltAngle += particle.tiltAngleIncremental;
        particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
        particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
@@ -425,7 +421,7 @@ function confettiAnimation() {
 
      /**
       * If a confetti has fluttered out of view,
-      * bring it back to above the viewport and let if
+      * bring it back to above the viewport and let it
       * re-fall.
       */
        if (particle.x > W + 30 || particle.x < -30 ||
@@ -448,14 +444,12 @@ function confettiAnimation() {
      },
      false
    );
-
    // Push new confetti objects to `particles[]`
      for (var i = 0; i < maxConfettis; i++) {
        particles.push(new initConfettiParticle());
      }
-
    // Initialize canvas
      canvas.width = W;
      canvas.height = H;
-     draw();
+     Draw();
 }
